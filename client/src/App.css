@@ -70,3 +70,7 @@
   background-color: var(--line-border-empty);
   cursor: not-allowed;
 }
+
+.btn:hover:enabled {
+  background-color: rgb(255, 119, 248);
+}
