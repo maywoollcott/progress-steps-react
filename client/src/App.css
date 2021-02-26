@@ -1,38 +1,72 @@
-.App {
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #e0e0e0;
+}
+.container {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.progress-container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+
+.progress-container::before {
+  content: '';
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  z-index: -1; 
+  /* makes sure it's behind the numbers */
+}
+
+.circle {
+  background-color: white;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border: 3px solid var(--line-border-empty);
+  transition: .4s ease;
+}
+
+.circle.active {
+  border-color: var(--line-border-fill)
+}
+
+.btn {
+  background-color: var(--line-border-fill);
   color: white;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px; 
+  /* first is top and bottom, second left and right */
+  margin: 5px;
+  font-size: 14px;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:focus {
+  outline: none
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn:active {
+  transform: scale(0.94);
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
 }
